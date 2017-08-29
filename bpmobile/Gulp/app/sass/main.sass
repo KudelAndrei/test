@@ -1,44 +1,88 @@
 @import "fonts"
 @import "libs"
 @import "vars"
-//@import "loader"
 
-*::-webkit-input-placeholder
-	color: #666
-	opacity: 1
-
-*:-moz-placeholder
-	color: #666
-	opacity: 1
-
-*::-moz-placeholder
-	color: #666
-	opacity: 1
-
-*:-ms-input-placeholder
-	color: #666
-	opacity: 1
-
-body input:focus:required:invalid,
-body textarea:focus:required:invalid
-	color: #666
-body input:required:valid,
-body textarea:required:valid
-	color: #666
 
 html, body
 	height: 100%
 
 body
-	font-size: 16px
+	font-size: 52px
 	min-width: 320px
 	position: relative
-	line-height: 1.75
+	line-height: 1.2
 	font-family: $default-font
 	overflow-x: hidden
+	padding: 0
+	margin: 0
 
 
+.header
+	position: relative
+	background-color: #000
+	background-image: url(../img/bg.png)
+	background-position: top center
+	background-repeat: no-repeat
+	background-size: cover
+	height: 100vh
+	min-height: 360px
+	color: #fff
+	&::before
+		content: ""
+		position: absolute
+		bottom: 0
+		height: 50%
+		right: 0
+		left: 0
+		background-image: linear-gradient(top,rgba(0, 0, 0, 0) 0%,rgb(0, 0, 0) 100%)
 
+.select
+	position: absolute
+	top: 3%
+	right: 3%
+	background-color: #fff
+	font-size: 20px
+
+.header-bottom
+	position: absolute
+	padding: 3%
+	bottom: 0
+	display: flex
+
+.header__img
+	position: relative
+	margin-right: 5%
+	flex: 1 1 40%
+	>img
+			max-width: 100%
+	&::before
+		content: ""
+		position: absolute
+		background-image: url(../img/display.png)
+		width: 100%
+		top: 20px
+		left: 10px
+
+.header__text
+	flex: 1 1 100%
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+	text-transform: uppercase
+	margin-bottom: 15px
+	line-height: 1.5
+	.header__text-img
+		width: 25%
+		border-radius: 20%
+		margin-bottom: 3%
+	.header__text-head,
+	.header__text-desc,
+	.header__text-cat,
+	.header__text-sec
+		margin: 0
+	.header__text-desc
+		color: #ffa000
+		font-family: "Rubik", sans-serif
 
 
 @import "media" // Всегда в конце
