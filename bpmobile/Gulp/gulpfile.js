@@ -87,6 +87,10 @@ gulp.task('build', ['removedist', 'imagemin', 'sass', 'js'], function() {
 		'app/fonts/**/*',
 		]).pipe(gulp.dest('dist/fonts'));
 
+	var buildData = gulp.src([
+		'app/data/**',
+		]).pipe(gulp.dest('dist/data'));
+
 });
 
 gulp.task('deploy', function() {
