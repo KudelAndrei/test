@@ -1,47 +1,49 @@
 window.onload = function(){
 
-	var selectBtn = document.getElementById('langSelect');
 	var content = document.getElementById('content');
 	var lang = document.getElementById('lang');
 	var selXHR = new XMLHttpRequest();
-	var selLang = new XMLHttpRequest();
-	var countOpen = 0;
-	var selOpn = document.querySelectorAll('option');
+	var tmp = new Array();		// два вспомагательных
+	var tmp2 = new Array();		// значение
+	var langs = ['de', 'en', 'es', 'fr', 'it', 'ja', 'ru'];
+	var isOpen = true;
 
-	function getSelectItem(){
+	var get = location.search;	// строка GET запроса
+	if (get != ""){
+		tmp = (get.substr(1)).split('&');	// разделяем переменные
+		for(var i = 0; i < tmp.length; i++) { 
+			tmp2 = tmp[i].split('='); 
+		}
+		if (isOpen){
+			if (tmp2[0] == 'lang'){
+				for (var j = 0; j < langs.length; j++){
+					if (tmp2[1] == langs[j]){
+						getSelectItem(tmp2[1]);
+						break;
+					} else { getSelectItem('en'); }
+					isOpen = true;
+				} 
+			}
+		} if (isOpen == false) { getSelectItem('en'); }
+	} else { getSelectItem('en'); }
+	
+	function getSelectItem(_lang){
 		lang.className = '';
-		selXHR.open("GET", "./data/langs.json", true);
+		console.log(_lang);
+		selXHR.open("GET", "./data/"+ _lang +".json", true);
 		selXHR.setRequestHeader('Content-Type', 'application/json');
 		selXHR.onreadystatechange = function(){
 			if (selXHR.readyState == 4 && selXHR.status == 200){
 				var returnRequest = JSON.parse(selXHR.response);
-				if (countOpen < 2){
-					for (var i = 0; i < returnRequest.length; i++){
-						var option = document.createElement('option');
-						option.innerHTML = returnRequest[i].lang;
-						option.value = returnRequest[i].lang;
-						selectBtn.appendChild(option);
-					}
-				} 
 				for (var i = 0; i < returnRequest.length; i++){
-					if (selectBtn.value == returnRequest[i].lang){
-						lang.classList.add(returnRequest[i].lang);
-						content.querySelector('.header__text-head').innerHTML = returnRequest[i].head;
-						content.querySelector('.header__text-cat').innerHTML = returnRequest[i].cat;
-						content.querySelector('.header__text-sec').innerHTML = returnRequest[i].sec;
-						content.querySelector('.header__text-desc').innerHTML = returnRequest[i].desc;
-					}
+					lang.classList.add(returnRequest[i].lang);
+					content.querySelector('.header__text-head').innerHTML = returnRequest[i].head;
+					content.querySelector('.header__text-cat').innerHTML = returnRequest[i].cat;
+					content.querySelector('.header__text-sec').innerHTML = returnRequest[i].sec;
+					content.querySelector('.header__text-desc').innerHTML = returnRequest[i].desc;
 				}
 			}
 		}
-		countOpen++;
 		selXHR.send();
 	}
-
-	getSelectItem(); // инициализация
-
-	selectBtn.addEventListener('click', function(event){
-		getSelectItem();
-	});
-
 }
