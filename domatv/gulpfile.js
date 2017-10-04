@@ -17,6 +17,8 @@ var gulp           = require('gulp'),
 // Скрипты проекта
 gulp.task('common-js', function() {
 	return gulp.src([
+		'app/libs/jquery/dist/jquery.min.js',
+		'app/libs/owl/owl.carousel.min.js',
 		'app/js/common.js',
 		])
 	.pipe(concat('common.min.js'))
