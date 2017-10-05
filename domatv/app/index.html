@@ -52,15 +52,16 @@
 						</div>
 					</div>
 					<div class="col">
-						<form class="getkook">
+						<form id='form' class="getkook" onsubmit="return false;">
 							<div class="getkook__text">
 								<span>Бестселлер Милы Гриценко</span>
 								<h3>Бесплатно</h3>
-								<span>только до 30.08.2017</span>
+								<span>только до <span id="date"></span></span>
 							</div>
-							<input class="getbook__input" type="name" placeholder="Ваше имя" required></input>
-							<input class="getbook__input" type="email" placeholder="Ваше e-mail" required></input>
-							<button class="getbook__btn">Получить книгу</button>
+							<span id="error" class="getbook__error"></span>
+							<input class="getbook__input getbook__input-name" type="name" placeholder="Ваше имя" required></input>
+							<input class="getbook__input getbook__input-email" type="email" placeholder="Ваше e-mail" required></input>
+							<button id="getBook" class="getbook__btn">Получить книгу</button>
 						</form>
 					</div>
 				</div>
@@ -78,7 +79,7 @@
 						<img src="img/owl/1.png">
 					</div>
 					<div class="slide__text">
-						<p class="slide__desc">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Агенство за своего маленькая свой прямо своих ты проектах решила!</p>
+						<p class="slide__desc">Никогда не готовила ничего сложнее отварных макарон. Теперь готовлю, как шеф-повар модного ресторана! Все безумно вкусно и полезно. И тающие килограммы в качестве бонуса. Разве не прекрасно?</p>
 						<h4 class="slide__name">Марта, 28 лет</h4>
 						<span class="slide__city">Гомель</span>
 					</div>
@@ -89,9 +90,9 @@
 						<img src="img/owl/2.png">
 					</div>
 					<div class="slide__text">
-						<p class="slide__desc">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Агенство за своего маленькая свой прямо своих ты проектах решила!</p>
-						<h4 class="slide__name">Марта, 28 лет</h4>
-						<span class="slide__city">Гомель</span>
+						<p class="slide__desc">Не думала, что в моем возрасте смогу выглядеть как девочка. Всю жизнь была пышкой, а тут такая красота - сама на себя не налюбуюсь. Мой случай - подтверждение того, что после 40 жизнь только начинается. Мила Гриценко - мой герой.</p>
+						<h4 class="slide__name">Марина, 40 лет</h4>
+						<span class="slide__city">Мачулищи</span>
 					</div>
 				</div>
 
@@ -100,9 +101,9 @@
 						<img src="img/owl/1.png">
 					</div>
 					<div class="slide__text">
-						<p class="slide__desc">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Агенство за своего маленькая свой прямо своих ты проектах решила!</p>
-						<h4 class="slide__name">Марта, 28 лет</h4>
-						<span class="slide__city">Гомель</span>
+						<p class="slide__desc">Не думала, что в моем возрасте смогу выглядеть как девочка. Всю жизнь была пышкой. Мой случай - подтверждение того, что после 40 жизнь только начинается. Мила Гриценко - мой герой.</p>
+						<h4 class="slide__name">Алена, 36 лет</h4>
+						<span class="slide__city">Минск</span>
 					</div>
 				</div>
 
@@ -111,12 +112,83 @@
 						<img src="img/owl/2.png">
 					</div>
 					<div class="slide__text">
-						<p class="slide__desc">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Агенство за своего маленькая свой прямо своих ты проектах решила!</p>
-						<h4 class="slide__name">Марта, 28 лет</h4>
-						<span class="slide__city">Гомель</span>
+						<p class="slide__desc">Не думала, что в моем возрасте смогу выглядеть как девочка. А тут такая красота - сама на себя не налюбуюсь. Мой случай - подтверждение того, что после 40 жизнь только начинается. Мила Гриценко - мой герой.</p>
+						<h4 class="slide__name">Алена, 30 лет</h4>
+						<span class="slide__city">Барановичи</span>
 					</div>
 				</div>
 
+				<div class="owl-carousel__slide slide">
+					<div class="slide-img">
+						<img src="img/owl/1.png">
+					</div>
+					<div class="slide__text">
+						<p class="slide__desc">Не думала, что в моем возрасте смогу выглядеть как девочка. Всю жизнь была пышкой, а тут такая красота - сама на себя не налюбуюсь. Мила Гриценко - мой герой.</p>
+						<h4 class="slide__name">Ирина, 35 лет</h4>
+						<span class="slide__city">Брест</span>
+					</div>
+				</div>
+
+				<div class="owl-carousel__slide slide">
+					<div class="slide-img">
+						<img src="img/owl/2.png">
+					</div>
+					<div class="slide__text">
+						<p class="slide__desc">Не думала, что в моем возрасте смогу выглядеть как девочка. Всю жизнь была пышкой, а тут такая красота - сама на себя не налюбуюсь. Мой случай - подтверждение того, что после 40 жизнь только начинается.</p>
+						<h4 class="slide__name">Евгения, 39 лет</h4>
+						<span class="slide__city">Клецк</span>
+					</div>
+				</div>
+
+				<div class="owl-carousel__slide slide">
+					<div class="slide-img">
+						<img src="img/owl/1.png">
+					</div>
+					<div class="slide__text">
+						<p class="slide__desc">Не думала, что в моем возрасте смогу выглядеть как девочка. Всю жизнь была пышкой, а тут такая красота - сама на себя не налюбуюсь.</p>
+						<h4 class="slide__name">Анна, 45 лет</h4>
+						<span class="slide__city">Могилев</span>
+					</div>
+				</div>
+
+				<div class="owl-carousel__slide slide">
+					<div class="slide-img">
+						<img src="img/owl/2.png">
+					</div>
+					<div class="slide__text">
+						<p class="slide__desc">Не думала, что в моем возрасте смогу выглядеть как девочка. Всю жизнь была пышкой. Мой случай - подтверждение того, что после 40 жизнь только начинается. Мила Гриценко - мой герой.</p>
+						<h4 class="slide__name">Татьяна, 27 лет</h4>
+						<span class="slide__city">Минск</span>
+					</div>
+				</div>
+
+				<div class="owl-carousel__slide slide">
+					<div class="slide-img">
+						<img src="img/owl/1.png">
+					</div>
+					<div class="slide__text">
+						<p class="slide__desc">Не думала, что в моем возрасте смогу выглядеть как девочка. Всю жизнь была пышкой. Мой случай - подтверждение того, что после 40 жизнь только начинается.</p>
+						<h4 class="slide__name">Людмила, 33 лет</h4>
+						<span class="slide__city">Солигорск</span>
+					</div>
+				</div>
+
+				<div class="owl-carousel__slide slide">
+					<div class="slide-img">
+						<img src="img/owl/2.png">
+					</div>
+					<div class="slide__text">
+						<p class="slide__desc">Не думала, что в моем возрасте смогу выглядеть как девочка. Всю жизнь была пышкой, а тут такая красота - сама на себя не налюбуюсь. Мой случай - подтверждение того, что после 40 жизнь только начинается. Мила Гриценко - мой герой.</p>
+						<h4 class="slide__name">Екатерина, 41 лет</h4>
+						<span class="slide__city">Слуцк</span>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="owl-navigation">
+				<div class="owl__next"></div>
+				<div class="owl__prev"></div>
 			</div>
 		</div>
 	</section>
