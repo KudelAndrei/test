@@ -57,7 +57,6 @@ body
 		flex: 1 1 33%
 		min-width: 360px
 
-
 .header
 	border-top: 9px $accent solid
 
@@ -264,7 +263,6 @@ body
 	.slide__city
 		font-size: 16px
 		margin-top: 0
-
 	.owl-navigation
 		position: absolute
 		top: 50%
@@ -286,8 +284,59 @@ body
 		.owl__next
 			right: -56px
 			background-position: -30px 0
-			
+	
+.modal
+	display: none
+	text-align: center
+	position: relative
+	.btn 
+		position: absolute
+		line-height: 50px
+		width: 50px
+		height: 50px
+		top: 0px
+		right: 0px
+		border: none
+		background: transparent
+		color: #333
+		font-weight: 700
+		outline: none
+		&:hover
+			background-color: #fafafa
+			text-decoration: none
+			color: #333
+			cursor: pointer
+	h3
+		text-transform: uppercase
+		color: #555
+	p
+		margin: 0
+		padding: 15px 0
 
+.content 
+	padding: 0 1em
+	background: $accent
+
+.overlay
+	background: #000
+	position: fixed
+	left: 0
+	right: 0
+	top: 0
+	bottom: 0
+	z-index: 1000
+	opacity: .5
+
+.visible 
+	background: #fff
+	position: fixed
+	left: 50%
+	top: 50%
+	transform: translate(-50%, -50%)
+	overflow: hidden
+	z-index: 2000
+	width: 500px
+	padding: 0px
 
 
 @import "media" // Всегда в конце
