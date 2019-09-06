@@ -6,7 +6,7 @@ window.onload = function(){
 	var tmp = new Array();		// два вспомагательных
 	var tmp2 = new Array();		// значение
 	var langs = ['de', 'en', 'es', 'fr', 'it', 'ja', 'ru'];
-	var isOpen = true;
+	// var isOpen = false;
 
 	var get = location.search;	// строка GET запроса
 	if (get != ""){
@@ -14,22 +14,21 @@ window.onload = function(){
 		for(var i = 0; i < tmp.length; i++) { 
 			tmp2 = tmp[i].split('='); 
 		}
-		if (isOpen){
-			if (tmp2[0] == 'lang'){
-				for (var j = 0; j < langs.length; j++){
-					if (tmp2[1] == langs[j]){
-						getSelectItem(tmp2[1]);
-						break;
-					} else { getSelectItem('en'); }
-					isOpen = true;
-				} 
-			}
-		} if (isOpen == false) { getSelectItem('en'); }
-	} else { getSelectItem('en'); }
+		// if (tmp2[0] == 'lang'){
+		// 	for (var j = 0; j < langs.length; j++){
+		// 		if (tmp2[1] == langs[j]){
+		// 			getSelectItem(tmp2[1]);
+		// 			isOpen = true;
+		// 			break;
+		// 		}
+		// 	} 
+		// }
+	}
+	getSelectItem(langs.includes(tmp2[1])? tmp2[1]: 'en');
+	// if (!isOpen) { getSelectItem('en'); }
 	
 	function getSelectItem(_lang){
 		lang.className = '';
-		console.log(_lang);
 		selXHR.open("GET", "./data/"+ _lang +".json", true);
 		selXHR.setRequestHeader('Content-Type', 'application/json');
 		selXHR.onreadystatechange = function(){
